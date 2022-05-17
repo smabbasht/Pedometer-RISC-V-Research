@@ -1,0 +1,56 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000186a13167a0 .scope module, "node" "node" 2 4;
+ .timescale 0 0;
+o00000186a13170f8 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
+v00000186a1314cc0_0 .net "A", 9 0, o00000186a13170f8;  0 drivers
+o00000186a13171e8 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
+v00000186a1314d60_0 .net "B", 9 0, o00000186a13171e8;  0 drivers
+v00000186a1314e00_0 .net "mult1Res", 9 0, L_00000186a135a5b0;  1 drivers
+v00000186a1314ea0_0 .net "mult2Res", 9 0, L_00000186a135a330;  1 drivers
+o00000186a1317128 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
+v00000186a1359d90_0 .net "multA", 9 0, o00000186a1317128;  0 drivers
+o00000186a1317218 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
+v00000186a135a290_0 .net "multB", 9 0, o00000186a1317218;  0 drivers
+v00000186a135a010_0 .net "noderesult", 9 0, L_00000186a1359e30;  1 drivers
+S_00000186a1316930 .scope module, "adder1" "adder" 2 12, 3 1 0, S_00000186a13167a0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 10 "A";
+    .port_info 1 /INPUT 10 "B";
+    .port_info 2 /OUTPUT 10 "O";
+v00000186a1316ac0_0 .net "A", 9 0, L_00000186a135a5b0;  alias, 1 drivers
+v00000186a1316260_0 .net "B", 9 0, L_00000186a135a330;  alias, 1 drivers
+v00000186a1316b60_0 .net "O", 9 0, L_00000186a1359e30;  alias, 1 drivers
+L_00000186a1359e30 .arith/sum 10, L_00000186a135a5b0, L_00000186a135a330;
+S_00000186a12e2d20 .scope module, "mult1" "multiplier" 2 10, 4 1 0, S_00000186a13167a0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 10 "A";
+    .port_info 1 /INPUT 10 "B";
+    .port_info 2 /OUTPUT 10 "O";
+v00000186a12e2eb0_0 .net "A", 9 0, o00000186a13170f8;  alias, 0 drivers
+v00000186a12e2f50_0 .net "B", 9 0, o00000186a1317128;  alias, 0 drivers
+v00000186a12e2ff0_0 .net "O", 9 0, L_00000186a135a5b0;  alias, 1 drivers
+L_00000186a135a5b0 .arith/mult 10, o00000186a13170f8, o00000186a1317128;
+S_00000186a12e3090 .scope module, "mult2" "multiplier" 2 11, 4 1 0, S_00000186a13167a0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 10 "A";
+    .port_info 1 /INPUT 10 "B";
+    .port_info 2 /OUTPUT 10 "O";
+v00000186a1314ae0_0 .net "A", 9 0, o00000186a13171e8;  alias, 0 drivers
+v00000186a1314b80_0 .net "B", 9 0, o00000186a1317218;  alias, 0 drivers
+v00000186a1314c20_0 .net "O", 9 0, L_00000186a135a330;  alias, 1 drivers
+L_00000186a135a330 .arith/mult 10, o00000186a13171e8, o00000186a1317218;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "node.v";
+    "./adder.v";
+    "./multiplier.v";

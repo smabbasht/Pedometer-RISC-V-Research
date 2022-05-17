@@ -1,4 +1,4 @@
-module multiplier();
+module multiplier(A, B, O);
     input  [9: 0] A, B;
     output [9: 0] O;
 
