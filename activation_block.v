@@ -1,4 +1,4 @@
-module act_Block();
+module act_Block(value, S);
     input  [9:0] value;
     output S;
 
