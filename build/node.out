@@ -7,46 +7,85 @@
 :vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
 :vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_00000186a13167a0 .scope module, "node" "node" 2 4;
+S_000002b99c41d7b0 .scope module, "node" "node" 2 4;
  .timescale 0 0;
-o00000186a13170f8 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
-v00000186a1314cc0_0 .net "A", 9 0, o00000186a13170f8;  0 drivers
-o00000186a13171e8 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
-v00000186a1314d60_0 .net "B", 9 0, o00000186a13171e8;  0 drivers
-v00000186a1314e00_0 .net "mult1Res", 9 0, L_00000186a135a5b0;  1 drivers
-v00000186a1314ea0_0 .net "mult2Res", 9 0, L_00000186a135a330;  1 drivers
-o00000186a1317128 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
-v00000186a1359d90_0 .net "multA", 9 0, o00000186a1317128;  0 drivers
-o00000186a1317218 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
-v00000186a135a290_0 .net "multB", 9 0, o00000186a1317218;  0 drivers
-v00000186a135a010_0 .net "noderesult", 9 0, L_00000186a1359e30;  1 drivers
-S_00000186a1316930 .scope module, "adder1" "adder" 2 12, 3 1 0, S_00000186a13167a0;
+    .port_info 0 /INPUT 10 "A";
+    .port_info 1 /INPUT 10 "B";
+    .port_info 2 /INPUT 10 "multA";
+    .port_info 3 /INPUT 10 "multB";
+    .port_info 4 /OUTPUT 10 "nodeResult";
+    .port_info 5 /INPUT 1 "clk";
+o000002b99c469108 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
+v000002b99c4ac140_0 .net "A", 9 0, o000002b99c469108;  0 drivers
+o000002b99c469228 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
+v000002b99c4ac1e0_0 .net "B", 9 0, o000002b99c469228;  0 drivers
+o000002b99c469018 .functor BUFZ 1, C4<z>; HiZ drive
+v000002b99c4ac280_0 .net "clk", 0 0, o000002b99c469018;  0 drivers
+v000002b99c4ac320_0 .net "mult1Res", 9 0, v000002b99c432dc0_0;  1 drivers
+v000002b99c4ac9b0_0 .net "mult2Res", 9 0, v000002b99c4ac000_0;  1 drivers
+o000002b99c469138 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
+v000002b99c4acd70_0 .net "multA", 9 0, o000002b99c469138;  0 drivers
+o000002b99c469258 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
+v000002b99c4ad130_0 .net "multB", 9 0, o000002b99c469258;  0 drivers
+v000002b99c4ac870_0 .net "nodeResult", 9 0, v000002b99c41dad0_0;  1 drivers
+S_000002b99c41d940 .scope module, "adder1" "adder" 2 14, 3 1 0, S_000002b99c41d7b0;
  .timescale 0 0;
     .port_info 0 /INPUT 10 "A";
     .port_info 1 /INPUT 10 "B";
     .port_info 2 /OUTPUT 10 "O";
-v00000186a1316ac0_0 .net "A", 9 0, L_00000186a135a5b0;  alias, 1 drivers
-v00000186a1316260_0 .net "B", 9 0, L_00000186a135a330;  alias, 1 drivers
-v00000186a1316b60_0 .net "O", 9 0, L_00000186a1359e30;  alias, 1 drivers
-L_00000186a1359e30 .arith/sum 10, L_00000186a135a5b0, L_00000186a135a330;
-S_00000186a12e2d20 .scope module, "mult1" "multiplier" 2 10, 4 1 0, S_00000186a13167a0;
+    .port_info 3 /INPUT 1 "clk";
+v000002b99c41bb60_0 .net "A", 9 0, v000002b99c432dc0_0;  alias, 1 drivers
+v000002b99c466580_0 .net "B", 9 0, v000002b99c4ac000_0;  alias, 1 drivers
+v000002b99c41dad0_0 .var "O", 9 0;
+v000002b99c41db70_0 .net "clk", 0 0, o000002b99c469018;  alias, 0 drivers
+E_000002b99c4190b0 .event posedge, v000002b99c41db70_0;
+S_000002b99c464f80 .scope module, "mult1" "multiplier" 2 12, 4 1 0, S_000002b99c41d7b0;
  .timescale 0 0;
     .port_info 0 /INPUT 10 "A";
     .port_info 1 /INPUT 10 "B";
     .port_info 2 /OUTPUT 10 "O";
-v00000186a12e2eb0_0 .net "A", 9 0, o00000186a13170f8;  alias, 0 drivers
-v00000186a12e2f50_0 .net "B", 9 0, o00000186a1317128;  alias, 0 drivers
-v00000186a12e2ff0_0 .net "O", 9 0, L_00000186a135a5b0;  alias, 1 drivers
-L_00000186a135a5b0 .arith/mult 10, o00000186a13170f8, o00000186a1317128;
-S_00000186a12e3090 .scope module, "mult2" "multiplier" 2 11, 4 1 0, S_00000186a13167a0;
+    .port_info 3 /INPUT 1 "clk";
+v000002b99c465110_0 .net "A", 9 0, o000002b99c469108;  alias, 0 drivers
+v000002b99c432d20_0 .net "B", 9 0, o000002b99c469138;  alias, 0 drivers
+v000002b99c432dc0_0 .var "O", 9 0;
+v000002b99c432e60_0 .net "clk", 0 0, o000002b99c469018;  alias, 0 drivers
+S_000002b99c432f00 .scope module, "mult2" "multiplier" 2 13, 4 1 0, S_000002b99c41d7b0;
  .timescale 0 0;
     .port_info 0 /INPUT 10 "A";
     .port_info 1 /INPUT 10 "B";
     .port_info 2 /OUTPUT 10 "O";
-v00000186a1314ae0_0 .net "A", 9 0, o00000186a13171e8;  alias, 0 drivers
-v00000186a1314b80_0 .net "B", 9 0, o00000186a1317218;  alias, 0 drivers
-v00000186a1314c20_0 .net "O", 9 0, L_00000186a135a330;  alias, 1 drivers
-L_00000186a135a330 .arith/mult 10, o00000186a13171e8, o00000186a1317218;
+    .port_info 3 /INPUT 1 "clk";
+v000002b99c433090_0 .net "A", 9 0, o000002b99c469228;  alias, 0 drivers
+v000002b99c433130_0 .net "B", 9 0, o000002b99c469258;  alias, 0 drivers
+v000002b99c4ac000_0 .var "O", 9 0;
+v000002b99c4ac0a0_0 .net "clk", 0 0, o000002b99c469018;  alias, 0 drivers
+    .scope S_000002b99c464f80;
+T_0 ;
+    %wait E_000002b99c4190b0;
+    %load/vec4 v000002b99c465110_0;
+    %load/vec4 v000002b99c432d20_0;
+    %mul;
+    %store/vec4 v000002b99c432dc0_0, 0, 10;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_000002b99c432f00;
+T_1 ;
+    %wait E_000002b99c4190b0;
+    %load/vec4 v000002b99c433090_0;
+    %load/vec4 v000002b99c433130_0;
+    %mul;
+    %store/vec4 v000002b99c4ac000_0, 0, 10;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_000002b99c41d940;
+T_2 ;
+    %wait E_000002b99c4190b0;
+    %load/vec4 v000002b99c41bb60_0;
+    %load/vec4 v000002b99c466580_0;
+    %add;
+    %store/vec4 v000002b99c41dad0_0, 0, 10;
+    %jmp T_2;
+    .thread T_2;
 # The file index is used to find the file name in the following table.
 :file_names 5;
     "N/A";

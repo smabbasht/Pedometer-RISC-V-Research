@@ -1,14 +1,17 @@
 `include "multiplier.v"
 `include "adder.v"
+`include "d_flipflop.v"
 
-module node(A, B, multA, multB, nodeResult);
-    input  [9: 0] A, B;               // our inputs x and y
-    input  [9: 0] multA, multB;       // multipliers supposed to be multiplied with A and B
-    output [9: 0] nodeResult;         // final output of Node
-    wire   [9: 0] mult1Res, mult2Res; // intermediate wires
+module node(A, B, multA, multB, nodeResult, clk);
+    input  [7:0] A, B;               // our inputs x and y
+    input  [7:0] multA, multB;       // multipliers supposed to be multiplied with A and B
+    input clk; 
+    output [7:0] nodeResult;         // final output of Node
+    wire   [7:0] mult1Res, mult2Res, ffInput; // intermediate wires
     
-    multiplier mult1(.A(A), .B(multA), .O(mult1Res));
-    multiplier mult2(.A(B), .B(multB), .O(mult2Res));
-    adder adder1(.A(mult1Res), .B(mult2Res), .O(nodeResult));
+    multiplier mult1(.A(A), .B(multA), .O(mult1Res), .clk(clk));
+    multiplier mult2(.A(B), .B(multB), .O(mult2Res), .clk(clk));
+    adder adder1(.A(mult1Res), .B(mult2Res), .O(ff_input), .clk(clk));
+    d_flipflop dff1(.clk(clk), .Q(ff_input), .D(nodeResult));
 
 endmodule

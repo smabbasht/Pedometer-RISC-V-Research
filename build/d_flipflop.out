@@ -1,0 +1,32 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001d5b6f12df0 .scope module, "d_flipflop" "d_flipflop" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 8 "Q";
+    .port_info 2 /OUTPUT 8 "D";
+v000001d5b6f12f80_0 .var "D", 7 0;
+o000001d5b6f47008 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000001d5b6f13020_0 .net "Q", 7 0, o000001d5b6f47008;  0 drivers
+o000001d5b6f47038 .functor BUFZ 1, C4<z>; HiZ drive
+v000001d5b6f130c0_0 .net "clk", 0 0, o000001d5b6f47038;  0 drivers
+E_000001d5b6f456d0 .event posedge, v000001d5b6f130c0_0;
+    .scope S_000001d5b6f12df0;
+T_0 ;
+    %wait E_000001d5b6f456d0;
+    %load/vec4 v000001d5b6f13020_0;
+    %store/vec4 v000001d5b6f12f80_0, 0, 8;
+    %jmp T_0;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "d_flipflop.v";
