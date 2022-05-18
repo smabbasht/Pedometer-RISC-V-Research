@@ -2,14 +2,14 @@
 `include "activation_block.v"
 
 module ExBlock(clk, A, B, funct, totalSteps, theta1_1, theta1_2, theta2_1, theta2_2, alpha1, alpha2, step, updatedSteps);
-    input  [9:0] A, B;  // Our inputs X and Y
+    input  [7:0] A, B;  // Our inputs X and Y
     input  [2:0] funct; // Determines the type of instructions
-    input  [9:0] theta1_1, theta1_2, theta2_1, theta2_2, alpha1, alpha2; // values of our multipliers already fetched from previous blocks
-    input  [9:0] totalSteps;
+    input  [7:0] theta1_1, theta1_2, theta2_1, theta2_2, alpha1, alpha2; // values of our multipliers already fetched from previous blocks
+    input  [7:0] totalSteps;
     input  clk;
     output step;        // Our Final Boolean Output
-    output reg [9:0] updatedSteps;
-    wire   [9:0] n1_1out, n1_2out, n2_1out;
+    output reg [7:0] updatedSteps;
+    wire   [7:0] n1_1out, n1_2out, n2_1out;
 
     node n1_1(.A(A), .B(B), .multA(theta1_1), .multB(theta1_2), .nodeResult(n1_1out), .clk(clk)); // node_FirstLayer_FirstNode  (inner layer nodes)
     node n1_2(.A(A), .B(B), .multA(theta2_1), .multB(theta2_2), .nodeResult(n1_2out), .clk(clk)); // node_FirstLayer_SecondNode (inner layer nodes)
@@ -19,7 +19,7 @@ module ExBlock(clk, A, B, funct, totalSteps, theta1_1, theta1_2, theta2_1, theta
     always@(posedge clk) begin
         if (funct == 3'd1) // Normal Counting Instruction
             begin
-                updatedSteps = (step==1'b1) ? totalSteps + 10'd1 : totalSteps; 
+                updatedSteps = (step==1'b1) ? totalSteps + 8'd1 : totalSteps; 
             end
         // else if (funct == 3'd0) // Reset Instruction
         //     begin
