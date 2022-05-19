@@ -27,8 +27,8 @@ module pedometer(
     wire [ 3:0] opcode;
     wire [31:0] instruction;
     wire [ 2:0] Addr1, Addr2;
-    wire [ 7:0] A, B, Data1, Data2, totalSteps, updatedTotalSteps;
     wire [ 7:0] theta1, theta2, beta1, beta2, alpha1, alpha2;
+    wire [ 7:0] A, B, Data1, Data2, totalSteps, updatedTotalSteps;
 
     instrFetch IF(.clk(clk), .reset(reset), .countSteps(countSteps), .updateWeights(updateWeights), .dualUpdateWeights(dualUpdateWeights), .Addr1(Addr1), .Data1(Data1), .Addr2(Addr2), .Data2(Data2), .A(A), .B(B), .instruction(instruction));
 
@@ -42,4 +42,5 @@ module pedometer(
     ExBlock EX(.clk(clk), .A(A), .B(B), .step(step), .theta1(theta1), .theta2(theta2), .beta1(beta1), .beta2(beta2), .alpha1(alpha1), .alpha2(alpha2));
 
     writeBack WB(.step(step), .writeTotalSteps(writeTotalSteps), .totalSteps(totalSteps), .updatedTotalSteps(updatedTotalSteps));
+    
 endmodule
