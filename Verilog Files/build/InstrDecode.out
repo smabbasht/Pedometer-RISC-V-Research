@@ -1,0 +1,39 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000018b4cce2ce0 .scope module, "instrDecode" "instrDecode" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "instruction";
+    .port_info 1 /OUTPUT 8 "A";
+    .port_info 2 /OUTPUT 8 "B";
+    .port_info 3 /OUTPUT 3 "Addr1";
+    .port_info 4 /OUTPUT 3 "Addr2";
+    .port_info 5 /OUTPUT 8 "Data1";
+    .port_info 6 /OUTPUT 8 "Data2";
+v0000018b4ce78970_0 .net "A", 7 0, L_0000018b4cd13750;  1 drivers
+v0000018b4ce78730_0 .net "Addr1", 2 0, L_0000018b4cd13390;  1 drivers
+v0000018b4ce77d60_0 .net "Addr2", 2 0, L_0000018b4cd12cb0;  1 drivers
+v0000018b4ce78c70_0 .net "B", 7 0, L_0000018b4cd136b0;  1 drivers
+v0000018b4ce77ba0_0 .net "Data1", 7 0, L_0000018b4cd13610;  1 drivers
+v0000018b4cce2e70_0 .net "Data2", 7 0, L_0000018b4cd12c10;  1 drivers
+o0000018b4cd170f8 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0000018b4cce2f10_0 .net "instruction", 31 0, o0000018b4cd170f8;  0 drivers
+v0000018b4cd134d0_0 .net "opcode", 3 0, L_0000018b4cd13110;  1 drivers
+L_0000018b4cd13750 .part o0000018b4cd170f8, 4, 8;
+L_0000018b4cd136b0 .part o0000018b4cd170f8, 12, 8;
+L_0000018b4cd13390 .part o0000018b4cd170f8, 4, 3;
+L_0000018b4cd13610 .part o0000018b4cd170f8, 7, 8;
+L_0000018b4cd12cb0 .part o0000018b4cd170f8, 15, 3;
+L_0000018b4cd12c10 .part o0000018b4cd170f8, 18, 8;
+L_0000018b4cd13110 .part o0000018b4cd170f8, 0, 4;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "InstrDecode.v";

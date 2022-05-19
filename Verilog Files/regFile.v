@@ -1,15 +1,17 @@
 module regFile(
-    clk, updateWeight, reset, Addr1, Addr2, Data1, Data2, 
+    clk, updateWeight, updateTotalSteps, reset, Addr1, Addr2, Data1, Data2, updatedSteps, 
     theta1, theta1, beta1, beta2, alpha1, alpha2, totalSteps
 );
 
     input  clk;
     input  updateWeight;
+    input  updateTotalSteps;
     input  reset;
     input  [2:0] Addr1, Addr2;
     input  [7:0] Data1, Data2;
     output [7:0] theta1, theta2, beta1, beta2, alpha1, alpha2;
-    output [7:0] totalSteps;
+    output reg [7:0] totalSteps;
+    output [7:0] updatedSteps;
 
     reg [7:0] registers [7:0];
     initial begin
@@ -39,6 +41,11 @@ module regFile(
     assign beta2      = registers[3];
     assign alpha1     = registers[4];
     assign alpha2     = registers[5];
-    assign totalSteps = registers[6];
     
+    always @(posedge clk) begin
+        if(updateTotalSteps == 1'b1)
+            totalSteps = updatedSteps;
+        else 
+            totalSteps = registers[6];
+    end
 endmodule
