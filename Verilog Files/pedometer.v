@@ -17,7 +17,20 @@ module pedometer(
     input  [2 :0] Addr1, Addr2;
     input  [7 :0] Data1, Data2;
 
-    
+    wire reset;
+    wire countSteps;
+    wire updatedSteps;
+    wire dualUpdateWeights;
+    wire [31:0] instruction;
+    wire [ 3:0] opcode;
+    wire [ 7:0] A, B, Data1, Data2;
+    wire [ 2:0] Addr1, Addr2;
+
+    instrFetch IF(.clk(clk), .reset(reset), .countSteps(countSteps), .updateWeights(updateWeights), .dualUpdateWeights(dualUpdateWeights), .Addr1(Addr1), .Data1(Data1), .Addr2(Addr2), .Data2(Data2), .A(A), .B(B), .instruction(instruction));
+
+    instrDecode ID(.instruction(instruction), .A(A), .B(B), .Addr1(Addr1), .Data1(Data1), .Addr2(Addr2), .Data2(Data2), .opcode(opcode));
+
+    regFile rFile(.clk(clk), .reset(reset), .updateWeight(updateWeight));
     
 
 endmodule
