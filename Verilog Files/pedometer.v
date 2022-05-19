@@ -30,7 +30,7 @@ module pedometer(
 
     instrDecode ID(.instruction(instruction), .A(A), .B(B), .Addr1(Addr1), .Data1(Data1), .Addr2(Addr2), .Data2(Data2), .opcode(opcode));
 
-    regFile rFile(.clk(clk), .reset(reset), .updateWeight(updateWeight));
+    regFile rFile(.clk(clk), .reset(reset), .updateWeight(updateWeight), .());
     
 
 endmodule
