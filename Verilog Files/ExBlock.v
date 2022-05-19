@@ -1,7 +1,7 @@
 `include "node.v"
 `include "activation_block.v"
 
-module ExBlock(clk, A, B, funct, totalSteps, theta1, theta2, beta1, beta2, alpha1, alpha2, step, updatedSteps);
+module ExBlock(clk, A, B, theta1, theta2, beta1, beta2, alpha1, alpha2, step);
     input  [7:0] A, B;  // Our inputs X and Y
     input  [7:0] theta1, theta2, beta1, beta2, alpha1, alpha2; // values of our multipliers already fetched from previous blocks
     input  clk;

@@ -41,5 +41,5 @@ module pedometer(
 
     ExBlock EX(.clk(clk), .A(A), .B(B), .step(step), .theta1(theta1), .theta2(theta2), .beta1(beta1), .beta2(beta2), .alpha1(alpha1), .alpha2(alpha2));
 
-    writeBack WB(.step(step), .writeTotalSteps(writeTotalSteps), .totalSteps(totalSteps), .updatedtotalSteps(updatedtotalSteps));
+    writeBack WB(.step(step), .writeTotalSteps(writeTotalSteps), .totalSteps(totalSteps), .updatedTotalSteps(updatedTotalSteps));
 endmodule

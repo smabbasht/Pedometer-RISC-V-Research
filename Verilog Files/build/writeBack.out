@@ -7,42 +7,42 @@
 :vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
 :vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_0000022047b55ba0 .scope module, "writeBack" "writeBack" 2 3;
+S_00000163c50a5ba0 .scope module, "writeBack" "writeBack" 2 3;
  .timescale 0 0;
     .port_info 0 /INPUT 1 "step";
     .port_info 1 /INPUT 1 "writeTotalSteps";
     .port_info 2 /INPUT 8 "totalSteps";
-    .port_info 3 /OUTPUT 8 "updTotalSteps";
-o0000022047b571e8 .functor BUFZ 1, C4<z>; HiZ drive
-o0000022047b57218 .functor BUFZ 1, C4<z>; HiZ drive
-L_0000022047b56000 .functor AND 1, o0000022047b571e8, o0000022047b57218, C4<1>, C4<1>;
-v0000022047b522e0_0 .net "ANDout", 0 0, L_0000022047b56000;  1 drivers
-v0000022047b52060_0 .net "step", 0 0, o0000022047b571e8;  0 drivers
-o0000022047b56fa8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
-v0000022047b52380_0 .net "totalSteps", 7 0, o0000022047b56fa8;  0 drivers
-v0000022047b521a0_0 .net "updTotalSteps", 7 0, L_0000022047b52420;  1 drivers
-v0000022047b52920_0 .net "writeTotalSteps", 0 0, o0000022047b57218;  0 drivers
-S_0000022047b55d30 .scope module, "cAdd1" "condAdder" 2 12, 3 1 0, S_0000022047b55ba0;
+    .port_info 3 /OUTPUT 8 "updatedTotalSteps";
+o00000163c50a71e8 .functor BUFZ 1, C4<z>; HiZ drive
+o00000163c50a7218 .functor BUFZ 1, C4<z>; HiZ drive
+L_00000163c50a6000 .functor AND 1, o00000163c50a71e8, o00000163c50a7218, C4<1>, C4<1>;
+v00000163c50a21a0_0 .net "ANDout", 0 0, L_00000163c50a6000;  1 drivers
+v00000163c50a2740_0 .net "step", 0 0, o00000163c50a71e8;  0 drivers
+o00000163c50a6fa8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v00000163c50a27e0_0 .net "totalSteps", 7 0, o00000163c50a6fa8;  0 drivers
+v00000163c50a2880_0 .net "updatedTotalSteps", 7 0, L_00000163c50a22e0;  1 drivers
+v00000163c50a29c0_0 .net "writeTotalSteps", 0 0, o00000163c50a7218;  0 drivers
+S_00000163c50a5d30 .scope module, "cAdd1" "condAdder" 2 12, 3 1 0, S_00000163c50a5ba0;
  .timescale 0 0;
     .port_info 0 /INPUT 1 "step";
     .port_info 1 /INPUT 8 "A";
     .port_info 2 /OUTPUT 8 "totalSteps";
-L_0000022047ba0028 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
-L_0000022047b231c0 .functor XNOR 1, L_0000022047b56000, L_0000022047ba0028, C4<0>, C4<0>;
-v0000022047b090f0_0 .net "A", 7 0, o0000022047b56fa8;  alias, 0 drivers
-v0000022047b23120_0 .net/2u *"_ivl_0", 0 0, L_0000022047ba0028;  1 drivers
-v0000022047b55ec0_0 .net *"_ivl_10", 7 0, L_0000022047b52100;  1 drivers
-v0000022047b55f60_0 .net *"_ivl_2", 0 0, L_0000022047b231c0;  1 drivers
-L_0000022047ba0070 .functor BUFT 1, C4<00000001>, C4<0>, C4<0>, C4<0>;
-v0000022047b51a70_0 .net/2u *"_ivl_4", 7 0, L_0000022047ba0070;  1 drivers
-v0000022047b51b10_0 .net *"_ivl_6", 7 0, L_0000022047b52240;  1 drivers
-L_0000022047ba00b8 .functor BUFT 1, C4<00000000>, C4<0>, C4<0>, C4<0>;
-v0000022047b51bb0_0 .net/2u *"_ivl_8", 7 0, L_0000022047ba00b8;  1 drivers
-v0000022047b51c50_0 .net "step", 0 0, L_0000022047b56000;  alias, 1 drivers
-v0000022047b51cf0_0 .net "totalSteps", 7 0, L_0000022047b52420;  alias, 1 drivers
-L_0000022047b52240 .arith/sum 8, o0000022047b56fa8, L_0000022047ba0070;
-L_0000022047b52100 .arith/sum 8, o0000022047b56fa8, L_0000022047ba00b8;
-L_0000022047b52420 .functor MUXZ 8, L_0000022047b52100, L_0000022047b52240, L_0000022047b231c0, C4<>;
+L_00000163c50f0028 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_00000163c50731c0 .functor XNOR 1, L_00000163c50a6000, L_00000163c50f0028, C4<0>, C4<0>;
+v00000163c51890f0_0 .net "A", 7 0, o00000163c50a6fa8;  alias, 0 drivers
+v00000163c5073120_0 .net/2u *"_ivl_0", 0 0, L_00000163c50f0028;  1 drivers
+v00000163c50a5ec0_0 .net *"_ivl_10", 7 0, L_00000163c50a2c40;  1 drivers
+v00000163c50a5f60_0 .net *"_ivl_2", 0 0, L_00000163c50731c0;  1 drivers
+L_00000163c50f0070 .functor BUFT 1, C4<00000001>, C4<0>, C4<0>, C4<0>;
+v00000163c50a1a70_0 .net/2u *"_ivl_4", 7 0, L_00000163c50f0070;  1 drivers
+v00000163c50a1b10_0 .net *"_ivl_6", 7 0, L_00000163c50a2240;  1 drivers
+L_00000163c50f00b8 .functor BUFT 1, C4<00000000>, C4<0>, C4<0>, C4<0>;
+v00000163c50a1bb0_0 .net/2u *"_ivl_8", 7 0, L_00000163c50f00b8;  1 drivers
+v00000163c50a1c50_0 .net "step", 0 0, L_00000163c50a6000;  alias, 1 drivers
+v00000163c50a1cf0_0 .net "totalSteps", 7 0, L_00000163c50a22e0;  alias, 1 drivers
+L_00000163c50a2240 .arith/sum 8, o00000163c50a6fa8, L_00000163c50f0070;
+L_00000163c50a2c40 .arith/sum 8, o00000163c50a6fa8, L_00000163c50f00b8;
+L_00000163c50a22e0 .functor MUXZ 8, L_00000163c50a2c40, L_00000163c50a2240, L_00000163c50731c0, C4<>;
 # The file index is used to find the file name in the following table.
 :file_names 4;
     "N/A";

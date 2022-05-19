@@ -1,4 +1,4 @@
-module instrDecode(instruction, A, B, Addr1, Addr2, Data1, Data2);
+module instrDecode(instruction, A, B, Addr1, Addr2, Data1, Data2, opcode);
     input  [31:0] instruction;
     output [7 :0] A, B;
     output [2 :0] Addr1, Addr2;

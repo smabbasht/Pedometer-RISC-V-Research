@@ -1,5 +1,5 @@
 module instrFetch(
-    updateWeights, countSteps, reset, dualUpdateWeights, A, B, Addr1, Addr2, Data1, Data2,
+    clk, updateWeights, countSteps, reset, dualUpdateWeights, A, B, Addr1, Addr2, Data1, Data2,
     instruction
 );
     input  clk;

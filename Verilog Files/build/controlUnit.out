@@ -1,0 +1,38 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002100f9d2ce0 .scope module, "controlUnit" "controlUnit" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "opcode";
+    .port_info 1 /OUTPUT 1 "updateWeight";
+    .port_info 2 /OUTPUT 1 "updateTotalSteps";
+    .port_info 3 /OUTPUT 1 "reset";
+L_000002100fb4a6e0 .functor NOT 1, L_000002100fa01990, C4<0>, C4<0>, C4<0>;
+L_000002100fb4aa50 .functor NOT 1, L_000002100fa01c10, C4<0>, C4<0>, C4<0>;
+L_000002100f9d3720 .functor AND 1, L_000002100fb4a6e0, L_000002100fb4aa50, C4<1>, C4<1>;
+L_000002100f9d3180 .functor NOT 1, L_000002100fa01fd0, C4<0>, C4<0>, C4<0>;
+v000002100fb4a9b0_0 .net *"_ivl_1", 0 0, L_000002100fa01990;  1 drivers
+v000002100fb4a640_0 .net *"_ivl_13", 0 0, L_000002100fa01fd0;  1 drivers
+v000002100f9d2e70_0 .net *"_ivl_2", 0 0, L_000002100fb4a6e0;  1 drivers
+v000002100f9d2f10_0 .net *"_ivl_5", 0 0, L_000002100fa01c10;  1 drivers
+v000002100f9d2fb0_0 .net *"_ivl_6", 0 0, L_000002100fb4aa50;  1 drivers
+o000002100fa070c8 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v000002100f9d3050_0 .net "opcode", 3 0, o000002100fa070c8;  0 drivers
+v000002100fa01710_0 .net "reset", 0 0, L_000002100f9d3720;  1 drivers
+v000002100fa01ad0_0 .net "updateTotalSteps", 0 0, L_000002100f9d3180;  1 drivers
+v000002100fa01b70_0 .net "updateWeight", 0 0, L_000002100fa02070;  1 drivers
+L_000002100fa01990 .part o000002100fa070c8, 2, 1;
+L_000002100fa01c10 .part o000002100fa070c8, 3, 1;
+L_000002100fa02070 .part o000002100fa070c8, 1, 1;
+L_000002100fa01fd0 .part o000002100fa070c8, 1, 1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "controlUnit.v";

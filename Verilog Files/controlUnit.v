@@ -4,7 +4,7 @@ module controlUnit(opcode, updateWeight, updateTotalSteps, reset);
     output  updateTotalSteps;
     output  reset;
 
-    assign reset = (~opcode[2]) & (~opcode[3])
+    assign reset = (~opcode[2]) & (~opcode[3]);
     assign updateWeight     =  opcode[1];
     assign updateTotalSteps = ~opcode[1];
 

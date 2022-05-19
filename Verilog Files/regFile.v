@@ -1,6 +1,6 @@
 module regFile(
     clk, updateWeight, updateTotalSteps, reset, Addr1, Addr2, Data1, Data2, updatedSteps, 
-    theta1, theta1, beta1, beta2, alpha1, alpha2, totalSteps
+    theta1, theta2, beta1, beta2, alpha1, alpha2, totalSteps
 );
 
     input  clk;
