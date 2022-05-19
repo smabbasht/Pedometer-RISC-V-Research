@@ -1,0 +1,37 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000029a9aae2ce0 .scope module, "condAdder" "condAdder" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "step";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /OUTPUT 8 "totalSteps";
+o0000029a9ab17128 .functor BUFZ 1, C4<z>; HiZ drive
+L_0000029a9ab57c38 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_0000029a9ab16cd0 .functor XNOR 1, o0000029a9ab17128, L_0000029a9ab57c38, C4<0>, C4<0>;
+o0000029a9ab16fd8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0000029a9aae2e70_0 .net "A", 7 0, o0000029a9ab16fd8;  0 drivers
+v0000029a9aae2f10_0 .net/2u *"_ivl_0", 0 0, L_0000029a9ab57c38;  1 drivers
+v0000029a9aae2fb0_0 .net *"_ivl_10", 7 0, L_0000029a9ac1e100;  1 drivers
+v0000029a9aae3050_0 .net *"_ivl_2", 0 0, L_0000029a9ab16cd0;  1 drivers
+L_0000029a9ab57c80 .functor BUFT 1, C4<00000001>, C4<0>, C4<0>, C4<0>;
+v0000029a9aae30f0_0 .net/2u *"_ivl_4", 7 0, L_0000029a9ab57c80;  1 drivers
+v0000029a9ac1dd50_0 .net *"_ivl_6", 7 0, L_0000029a9ac1e060;  1 drivers
+L_0000029a9ab57cc8 .functor BUFT 1, C4<00000000>, C4<0>, C4<0>, C4<0>;
+v0000029a9ac1ddf0_0 .net/2u *"_ivl_8", 7 0, L_0000029a9ab57cc8;  1 drivers
+v0000029a9ac1de90_0 .net "step", 0 0, o0000029a9ab17128;  0 drivers
+v0000029a9ac1df30_0 .net "totalSteps", 7 0, L_0000029a9ab11850;  1 drivers
+L_0000029a9ac1e060 .arith/sum 8, o0000029a9ab16fd8, L_0000029a9ab57c80;
+L_0000029a9ac1e100 .arith/sum 8, o0000029a9ab16fd8, L_0000029a9ab57cc8;
+L_0000029a9ab11850 .functor MUXZ 8, L_0000029a9ac1e100, L_0000029a9ac1e060, L_0000029a9ab16cd0, C4<>;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "conditionalAdder.v";

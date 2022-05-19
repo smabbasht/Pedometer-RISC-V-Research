@@ -1,0 +1,51 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000022047b55ba0 .scope module, "writeBack" "writeBack" 2 3;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "step";
+    .port_info 1 /INPUT 1 "writeTotalSteps";
+    .port_info 2 /INPUT 8 "totalSteps";
+    .port_info 3 /OUTPUT 8 "updTotalSteps";
+o0000022047b571e8 .functor BUFZ 1, C4<z>; HiZ drive
+o0000022047b57218 .functor BUFZ 1, C4<z>; HiZ drive
+L_0000022047b56000 .functor AND 1, o0000022047b571e8, o0000022047b57218, C4<1>, C4<1>;
+v0000022047b522e0_0 .net "ANDout", 0 0, L_0000022047b56000;  1 drivers
+v0000022047b52060_0 .net "step", 0 0, o0000022047b571e8;  0 drivers
+o0000022047b56fa8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0000022047b52380_0 .net "totalSteps", 7 0, o0000022047b56fa8;  0 drivers
+v0000022047b521a0_0 .net "updTotalSteps", 7 0, L_0000022047b52420;  1 drivers
+v0000022047b52920_0 .net "writeTotalSteps", 0 0, o0000022047b57218;  0 drivers
+S_0000022047b55d30 .scope module, "cAdd1" "condAdder" 2 12, 3 1 0, S_0000022047b55ba0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "step";
+    .port_info 1 /INPUT 8 "A";
+    .port_info 2 /OUTPUT 8 "totalSteps";
+L_0000022047ba0028 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_0000022047b231c0 .functor XNOR 1, L_0000022047b56000, L_0000022047ba0028, C4<0>, C4<0>;
+v0000022047b090f0_0 .net "A", 7 0, o0000022047b56fa8;  alias, 0 drivers
+v0000022047b23120_0 .net/2u *"_ivl_0", 0 0, L_0000022047ba0028;  1 drivers
+v0000022047b55ec0_0 .net *"_ivl_10", 7 0, L_0000022047b52100;  1 drivers
+v0000022047b55f60_0 .net *"_ivl_2", 0 0, L_0000022047b231c0;  1 drivers
+L_0000022047ba0070 .functor BUFT 1, C4<00000001>, C4<0>, C4<0>, C4<0>;
+v0000022047b51a70_0 .net/2u *"_ivl_4", 7 0, L_0000022047ba0070;  1 drivers
+v0000022047b51b10_0 .net *"_ivl_6", 7 0, L_0000022047b52240;  1 drivers
+L_0000022047ba00b8 .functor BUFT 1, C4<00000000>, C4<0>, C4<0>, C4<0>;
+v0000022047b51bb0_0 .net/2u *"_ivl_8", 7 0, L_0000022047ba00b8;  1 drivers
+v0000022047b51c50_0 .net "step", 0 0, L_0000022047b56000;  alias, 1 drivers
+v0000022047b51cf0_0 .net "totalSteps", 7 0, L_0000022047b52420;  alias, 1 drivers
+L_0000022047b52240 .arith/sum 8, o0000022047b56fa8, L_0000022047ba0070;
+L_0000022047b52100 .arith/sum 8, o0000022047b56fa8, L_0000022047ba00b8;
+L_0000022047b52420 .functor MUXZ 8, L_0000022047b52100, L_0000022047b52240, L_0000022047b231c0, C4<>;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "writeBack.v";
+    "./conditionalAdder.v";
