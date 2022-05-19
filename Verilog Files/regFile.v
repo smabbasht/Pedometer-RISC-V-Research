@@ -13,10 +13,10 @@ module regFile(
 
     reg [7:0] registers [7:0];
     initial begin
-    registers[0] = 8'd0;  registers[1] = 8'd1;
-    registers[2] = 8'd2;  registers[3] = 8'd3;
-    registers[4] = 8'd4;  registers[5] = 8'd5;
-    registers[6] = 8'd6;  registers[7] = 8'd7;
+    registers[0] = 8'd10;  registers[1] = 8'd10;
+    registers[2] = 8'd10;  registers[3] = 8'd10;
+    registers[4] = 8'd10;  registers[5] = 8'd10;
+    registers[6] = 8'd10;  registers[7] = 8'd10;
     end
 
     integer i;
